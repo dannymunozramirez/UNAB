@@ -27,9 +27,15 @@ public class Vehiculo {
 
     public void setPatente(String patente) {
 
+
+        if(patente.replaceAll("\\s", "").toUpperCase().length() <= 8){
+            this.patente = patente.replaceAll("\\s", "").toUpperCase();
+        } else {
+            System.out.println("PATENTE NO VÁLIDA");
+        }
         // Validar
 
-        this.patente = patente;
+
     }
 
     public String getMarca() {
@@ -64,7 +70,6 @@ public class Vehiculo {
     public void setCondicion(Character condicion, Gerente gerente) {
 
         if(gerente.getId() !=0 && !condicion.equals('A')){
-
             this.condicion = condicion;
         }
     }

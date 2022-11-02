@@ -14,7 +14,7 @@ public class MainRentACar {
         Cliente cliente1 = new Cliente("5464645-8", false, "cliente Prueba II");
 
         // vehiculo nuevo
-        Vehiculo vehiculo = new Vehiculo("ADFEG-34","Audi", "Q7", 2017,'D');
+        Vehiculo vehiculo = new Vehiculo("ADF EG- 3 4","Audi", "Q7", 2017,'D');
 
         // nuevo gerente
         Gerente gerente = new Gerente("Gerente Prueba", 123);
