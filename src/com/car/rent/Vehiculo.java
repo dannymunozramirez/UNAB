@@ -1,7 +1,7 @@
 package com.car.rent;
 
 /**
- * @author dannymunoz
+ * @author grupo 15
  */
 public class Vehiculo {
 
@@ -14,11 +14,10 @@ public class Vehiculo {
     public Vehiculo(String patente, String marca, String modelo, int anho, Character condicion) {
 
         setPatente(patente);
-
-        this.marca = marca;
-        this.modelo = modelo;
-        this.anho = anho;
-        this.condicion = condicion;
+        setMarca(marca);
+        setModelo(modelo);
+        setAnho(anho);
+        setCondicion(condicion);
     }
 
     public String getPatente() {
@@ -28,7 +27,7 @@ public class Vehiculo {
     public void setPatente(String patente) {
 
 
-        if(patente.replaceAll("\\s", "").toUpperCase().length() <= 8){
+        if (patente.replaceAll("\\s", "").toUpperCase().length() == 8) {
             this.patente = patente.replaceAll("\\s", "").toUpperCase();
         } else {
             System.out.println("PATENTE NO VÁLIDA");
@@ -59,7 +58,13 @@ public class Vehiculo {
     }
 
     public void setAnho(int anho) {
-        this.anho = anho;
+        System.out.println(anho);
+        if (anho >= 2000) {
+            this.anho = anho;
+        } else {
+            System.out.println("Año no válido");
+        }
+
     }
 
     public Character getCondicion() {
@@ -69,23 +74,17 @@ public class Vehiculo {
 
     public void setCondicion(Character condicion, Gerente gerente) {
 
-        if(gerente.getId() !=0 && !condicion.equals('A')){
+        if (gerente.getId() != 0 && !condicion.equals('A')) {
             this.condicion = condicion;
         }
     }
 
-    public void setCondicion(Character condicion){
+    public void setCondicion(Character condicion) {
         this.condicion = condicion;
     }
 
     @Override
     public String toString() {
-        return "Vehiculo{" +
-                "patente='" + patente + '\'' +
-                ", marca='" + marca + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", anho=" + anho +
-                ", condicion=" + condicion +
-                '}';
+        return "Vehiculo{" + "patente='" + patente + '\'' + ", marca='" + marca + '\'' + ", modelo='" + modelo + '\'' + ", anho=" + anho + ", condicion=" + condicion + '}';
     }
 }

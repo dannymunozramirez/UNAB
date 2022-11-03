@@ -11,8 +11,8 @@ public class Devolucion {
     private GregorianCalendar gregorianCalendar;
 
     public Devolucion(Arriendo arriendo, GregorianCalendar gregorianCalendar) {
-        this.arriendo = arriendo;
-        this.gregorianCalendar = gregorianCalendar;
+        setArriendo(arriendo);
+        setGregorianCalendar(gregorianCalendar);
 
         cambiarCondicion(arriendo);
     }
@@ -35,7 +35,15 @@ public class Devolucion {
     }
 
     public void setGregorianCalendar(GregorianCalendar gregorianCalendar) {
-        this.gregorianCalendar = gregorianCalendar;
+
+
+        if(gregorianCalendar.after(arriendo.getFecha())){
+            this.gregorianCalendar = gregorianCalendar;
+        } else {
+            System.out.println("FECHA DEBE SER MAYOR A LA FECHA DE ARRIENDO");
+            System.exit(1);
+        }
+
     }
 
 
