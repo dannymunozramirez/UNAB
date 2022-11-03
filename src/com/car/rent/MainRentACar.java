@@ -29,11 +29,13 @@ public class MainRentACar {
         Arriendo arriendo = new Arriendo(001, new GregorianCalendar(2022, 10, 01), 2, 45000, vehiculo, cliente1);
 
         arriendo.setTotalArriendo();
-
-        String guion = "-";
+        System.out.println("ANTES" + vehiculo);
+        String guion = "*";
         Devolucion devolucion = new Devolucion(arriendo, new GregorianCalendar(2022, 11, 01));
 
-        System.out.printf(guion.repeat(70));
+        System.out.println(guion.repeat(70));
+        System.out.printf("|"+" ".repeat(68) + "|\n");
+        System.out.println(vehiculo);
 
     }
 }

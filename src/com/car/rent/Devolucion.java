@@ -39,6 +39,7 @@ public class Devolucion {
 
         if(gregorianCalendar.after(arriendo.getFecha())){
             this.gregorianCalendar = gregorianCalendar;
+            arriendo.getVehiculo().setCondicion('D');
         } else {
             System.out.println("FECHA DEBE SER MAYOR A LA FECHA DE ARRIENDO");
             System.exit(1);
