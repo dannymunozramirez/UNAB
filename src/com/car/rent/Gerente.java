@@ -1,15 +1,24 @@
 package com.car.rent;
 
 /**
- * @author dannymunoz
+ * <p>
+ * Esta clase representa al gerente con sus atributos y métodos
+ * </p>
+ *
+ * @author Grupo 15
  */
 public class Gerente extends Usuario {
 
     private int id;
 
+    /**
+     * Método constructor de la clase
+     * @param nombre
+     * @param id
+     */
     public Gerente(String nombre, int id) {
         super(nombre);
-        this.id = id;
+        setId(id);
     }
 
     public int getId() {
@@ -22,8 +31,6 @@ public class Gerente extends Usuario {
 
     @Override
     public String toString() {
-        return "Gerente{" +
-                "id=" + id +
-                '}';
+        return "Gerente{" + "id=" + id + '}';
     }
 }

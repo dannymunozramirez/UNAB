@@ -3,7 +3,14 @@ package com.car.rent;
 import java.util.GregorianCalendar;
 
 /**
- * @author dannymunoz
+ * <p>
+ * Esta clase representa al Arriendo
+ * Un arriendo, se caracteriza por un número de arriendo, el vehículo, el cliente que lo arrienda,
+ * la fecha de arriendo y el número de días arrendado (mayor que 1 y menor que 10). El monto del
+ * arriendo se obtiene a partir del precio que el usuario ingresa en el momento de ingresar el arriendo.
+ * </p>
+ *
+ * @author Grupo 15
  */
 public class Arriendo {
 
@@ -15,12 +22,24 @@ public class Arriendo {
     private Vehiculo vehiculo;
     private Cliente cliente;
 
+    /**
+     * <p>
+     * Constructor de la Clase
+     * </p>
+     *
+     * @param nArriendo
+     * @param fecha
+     * @param nDias
+     * @param precio
+     * @param vehiculo
+     * @param cliente
+     */
     public Arriendo(int nArriendo, GregorianCalendar fecha, int nDias, int precio, Vehiculo vehiculo, Cliente cliente) {
-        this.nArriendo = nArriendo;
-        this.fecha = fecha;
-        this.nDias = nDias;
-        this.precio = precio;
-        this.vehiculo = vehiculo;
+        setnArriendo(nArriendo);
+        setFecha(fecha);
+        setnDias(nDias);
+        setPrecio(precio);
+        setVehiculo(vehiculo);
         setCliente(cliente, vehiculo);
 
         cambiarCondicion(vehiculo);
@@ -46,8 +65,20 @@ public class Arriendo {
         return nDias;
     }
 
+    /**
+     * <p>
+     * Número de días arrendado (mayor que 1 y menor que 10)
+     * </p>
+     *
+     * @param nDias
+     */
     public void setnDias(int nDias) {
-        this.nDias = nDias;
+        if (nDias >= 1 && nDias <= 10) {
+            this.nDias = nDias;
+        } else {
+            System.out.println("Número de días inválido");
+        }
+
     }
 
     public int getPrecio() {
@@ -64,6 +95,11 @@ public class Arriendo {
         return totalArriendo;
     }
 
+    /**
+     * <p>
+     *     Calcula el total del arriendo
+     * </p>
+     */
     public void setTotalArriendo() {
         this.totalArriendo = nDias * precio;
     }
@@ -80,6 +116,15 @@ public class Arriendo {
         return cliente;
     }
 
+    /**
+     * <p>
+     * El monto del arriendo se obtiene a partir del precio
+     * que el usuario ingresa en el momento de ingresar el arriendo
+     * </p>
+     *
+     * @param cliente
+     * @param vehiculo
+     */
     public void setCliente(Cliente cliente, Vehiculo vehiculo) {
 
         if (cliente.getValido() && vehiculo.getCondicion().equals('D')) {
@@ -91,8 +136,15 @@ public class Arriendo {
 
     }
 
-    public void cambiarCondicion(Vehiculo vehiculo){
-        if(vehiculo.getCondicion().equals('D')){
+    /**
+     * <p>
+     * Este Método cambia la condicion del vehículo cuando este es arrendado satisfactoriamente
+     * </p>
+     *
+     * @param vehiculo
+     */
+    public void cambiarCondicion(Vehiculo vehiculo) {
+        if (vehiculo.getCondicion().equals('D')) {
             vehiculo.setCondicion('A');
         }
     }

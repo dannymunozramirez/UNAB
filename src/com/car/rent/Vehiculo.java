@@ -1,7 +1,11 @@
 package com.car.rent;
 
 /**
- * @author grupo 15
+ * <p>
+ * Esta clase representa la vehículo con sus atributos y métodos
+ * </p>
+ *
+ * @author Grupo 15
  */
 public class Vehiculo {
 
@@ -11,6 +15,17 @@ public class Vehiculo {
     private int anho;
     private Character condicion;
 
+    /**
+     * <p>
+     * Método constructor de la clase
+     * </p>
+     *
+     * @param patente
+     * @param marca
+     * @param modelo
+     * @param anho
+     * @param condicion
+     */
     public Vehiculo(String patente, String marca, String modelo, int anho, Character condicion) {
 
         setPatente(patente);
@@ -24,17 +39,20 @@ public class Vehiculo {
         return patente;
     }
 
+    /**
+     * <p>
+     * Validación de la patente debe tener un largo de 8 dígitos
+     * </p>
+     *
+     * @param patente
+     */
     public void setPatente(String patente) {
-
 
         if (patente.replaceAll("\\s", "").toUpperCase().length() == 8) {
             this.patente = patente.replaceAll("\\s", "").toUpperCase();
         } else {
             System.out.println("PATENTE NO VÁLIDA");
         }
-        // Validar
-
-
     }
 
     public String getMarca() {
@@ -57,6 +75,12 @@ public class Vehiculo {
         return anho;
     }
 
+    /**
+     * <p>
+     * Validacion de año, este no debe ser menor a 2000
+     * </p>
+     * @param anho
+     */
     public void setAnho(int anho) {
         System.out.println(anho);
         if (anho >= 2000) {
@@ -72,6 +96,13 @@ public class Vehiculo {
     }
 
 
+    /**
+     * <p>
+     *     Cambiar la condición del vehículo a 'M' según lo determine un gerente
+     * </p>
+     * @param condicion
+     * @param gerente
+     */
     public void setCondicion(Character condicion, Gerente gerente) {
 
         if (gerente.getId() != 0 && !condicion.equals('A')) {

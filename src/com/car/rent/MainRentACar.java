@@ -11,7 +11,7 @@ public class MainRentACar {
 
         // nuevos clientes
         Cliente cliente = new Cliente("7657876-2", true, "Cliente Prueba I");
-        Cliente cliente1 = new Cliente("5464645-8", true, "cliente Prueba II");
+        Cliente cliente1 = new Cliente("5464645-k", true, "cliente Prueba II");
 
         // vehiculo nuevo
         Vehiculo vehiculo = new Vehiculo("ADFEG-34", "Audi", "Q7", 2000, 'D');
@@ -27,6 +27,9 @@ public class MainRentACar {
 
         // Crear arriendo
         Arriendo arriendo = new Arriendo(001, new GregorianCalendar(2022, 10, 01), 2, 45000, vehiculo, cliente1);
+
+
+        System.out.println(cliente1);
 
         arriendo.setTotalArriendo();
         System.out.println("ANTES" + vehiculo);
