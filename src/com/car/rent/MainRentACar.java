@@ -1,6 +1,8 @@
 package com.car.rent;
 import java.io.*;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 /**
  * @author dannymunoz
@@ -26,19 +28,15 @@ public class MainRentACar {
 //        System.out.println(vehiculo);
 
         // Crear arriendo
-        Arriendo arriendo = new Arriendo(001, new GregorianCalendar(2022, 10, 01), 2, 45000, vehiculo, cliente1);
+        Arriendo arriendo = new Arriendo(001, new GregorianCalendar(2022,10,02), 2, 45000, vehiculo, cliente1);
 
-
-        System.out.println(cliente1);
+        Ticket ticket = new Ticket();
 
         arriendo.setTotalArriendo();
-        System.out.println("ANTES" + vehiculo);
-        String guion = "*";
+
         Devolucion devolucion = new Devolucion(arriendo, new GregorianCalendar(2022, 11, 01));
 
-        System.out.println(guion.repeat(70));
-        System.out.printf("|"+" ".repeat(68) + "|\n");
-        System.out.println(vehiculo);
+        ticket.recibo(arriendo);
 
     }
 }

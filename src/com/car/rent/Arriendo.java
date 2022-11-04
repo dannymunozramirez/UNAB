@@ -1,6 +1,7 @@
 package com.car.rent;
 
 import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 /**
  * <p>
@@ -43,6 +44,7 @@ public class Arriendo {
         setCliente(cliente, vehiculo);
 
         cambiarCondicion(vehiculo);
+        System.out.println(fecha + " Fecha dentro de constructor arriendo" );
     }
 
     public int getnArriendo() {
@@ -58,6 +60,11 @@ public class Arriendo {
     }
 
     public void setFecha(GregorianCalendar fecha) {
+        TimeZone timeZone = TimeZone.getTimeZone("GMT+5:30");
+
+        System.out.println(fecha + " -------------------------");
+
+
         this.fecha = fecha;
     }
 
